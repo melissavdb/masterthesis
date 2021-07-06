@@ -197,10 +197,6 @@ def lf_regex_evoked_als_other(x):
 def lf_regex_quality_keyword(x):
     return QUALITY if re.search(r"^\baromatiek[a-z]{0,4}$|^\baromatisch[a-z]{0,4}$|^\baromatijk[a-z]{0,4}$|^\bbalsamisch[a-z]{0,4}$|^\bbalsemend[a-z]{0,4}$|^\bbalsemiek[a-z]{0,4}$|^\bgeparfumeerd[a-z]{0,4}$|^\bgeurig[a-z]{0,4}$|^\bgeurlo[a-z]{0,4}$|^\bmeurend[a-z]{0,4}$|^\bongeurig[a-z]{0,4}$|^\bonriekba[a-z]{0,4}$|^\bonwelrieckend[a-z]{0,4}$|^\bonwelriekend[a-z]{0,4}$|^\b[a-z]{rieckend[a-z]{0,4}$|^\b[a-z]{0,4}riekend[a-z]{0,4}$|^\breukgeevend[a-z]{0,4}$|^\breukgevend[a-z]{0,4}$|^\breukelo[a-z]{0,4}$|^\breuklo[a-z]{0,4}$|^\breukverwekkend[a-z]{0,4}$|^\bruikend[a-z]{0,2}$|^\bruykend[a-z]{0,4}$|^\bstankverdryvend[a-z]{0,4}$|^\bstanklo[a-z]{0,10}$|^\bstankverdrijvend[a-z]{0,4}$|^\bstankverwerend[a-z]{0,4}$|^\bstinckend[a-z]{0,4}$|^\bstinkend[a-z]{0,4}$|^\bverstikkend[a-z]{0,4}$|^\bwelrieckend[a-z]{0,4}$|^\bwelriekend[a-z]{0,4}$|^\bwelruikend[a-z]{0,4}$", x.word, flags=re.I) else NO_SMELL
 
-
-# In[23]:
-
-
 @labeling_function()
 def lf_regex_quality_een(x):
     return QUALITY if re.search(r"^\b[a-z]{1,20} \bgeur$|^\b[a-z]{1,20} \bgeur$|^\b[a-z]{1,20} \breuck$|^\b[a-z]{1,20} \breuck$|^\b[a-z]{1,20} \bstanck$|^\b[a-z]{1,20} \bstank$", x.word, flags=re.I) else NO_SMELL
