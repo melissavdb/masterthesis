@@ -1,31 +1,17 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Import packages
 import pandas as pd
 import re
 import nltk
 from nltk.tokenize import sent_tokenize
 
-
-# In[2]:
-
-
 # Open and read file
-with open('/Users/melissavandenbovenkamp/Documents/Master Data Science/Scriptie/Data/Medisch huishoudelijk/VanderHaar-1788-Proeve over de herzenen en zenuwen, en eenige derzelver ziekten.txt', 'r') as file:
+with open() as file:
     data = file.read()
 
-
-# In[3]:
-
-
-# Remove text breaks consiting of a letter, space, and number
+# Remove text breaks consisting of letter, space, and number
 data = data.replace(r"[A-Z]{1} [0-9]{1}", "")
 
-# Remove headers after tabs, command this when having texts with page numbers
+# Remove headers after tabs
 data = re.sub("\n\n(.*?)\n\n(.*?)\n", "\n", data)
 
 # Remove page numbers and image texts
@@ -43,27 +29,15 @@ data = re.sub("\n[(](.*?)[)](.*?)\n", "", data)
 # Remove tabs
 data = data.replace(r"\n", " ")
 
-
-# In[4]:
-
-
 # Tokenize text into sentences
 tokenized_text=sent_tokenize(data)
 print(tokenized_text)
-
-
-# In[5]:
-
 
 # Put tokenized text into dataframe
 df = pd.DataFrame(tokenized_text)
 
 # Show dataframe
 df
-
-
-# In[6]:
-
 
 # Remove rows with numbers
 df = df[~df[0].str.contains(r'[0-9]')]
@@ -83,16 +57,5 @@ df = df[~(count<5)].copy()
 # Show dataframe
 df
 
-
-# In[7]:
-
-
 # Save dataframe
 df.to_excel("output.xlsx")
-
-
-# In[ ]:
-
-
-
-
